@@ -1,11 +1,33 @@
-#include <auxiliary/global.h>
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <stb_image.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <auxiliary/platform.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <auxiliary/positions.h>
+#include <auxiliary/shader.h>
+#include <auxiliary/camera.h>
+#include <auxiliary/wall.h>
+#include <auxiliary/cube.h>
+#include <auxiliary/scene.h>
+#include <auxiliary/skybox.h>
+
+void framebuffer_size_callback(GLFWwindow *window, int width, int height);
+void mouse_callback(GLFWwindow *window, double xpos, double ypos);
+void scroll_callback(GLFWwindow *window, double xoffset, double yoffset);
+void processInput(GLFWwindow *window);
 
 //constants
-const unsigned SCR_WIDTH = 1920;
+const unsigned SCR_WIDTH = 1900;
 const unsigned SCR_HEIGHT = 1000;
-float heightScale = 0.1;
+float heightScale = 0.05;
 bool shadows = true;
-bool shadowsKeyPressed = false; //press F to enable/disable shadows
+bool shadowsKeyPressed = false; //press F to switch scenes
 
 Camera camera(SCR_WIDTH, SCR_HEIGHT, glm::vec3(10.0f, 0.0f, 5.0f));
 
@@ -54,19 +76,12 @@ int main() {
 		return -1;
 
     std::vector<std::string> faces {
-            FileSystem::getPath("textures/a/px.jpg"),
-            FileSystem::getPath("textures/a/nx.jpg"),
-            FileSystem::getPath("textures/a/py.jpg"),
-            FileSystem::getPath("textures/a/ny.jpg"),
-            FileSystem::getPath("textures/a/pz.jpg"),
-            FileSystem::getPath("textures/a/nz.jpg"),
-
-//            FileSystem::getPath("textures/px.jpg"),
-//            FileSystem::getPath("textures/nx.png"),
-//            FileSystem::getPath("textures/py.png"),
-//            FileSystem::getPath("textures/ny.png"),
-//            FileSystem::getPath("textures/pz.png"),
-//            FileSystem::getPath("textures/nz.png")
+            FileSystem::getPath("textures/skybox/px.jpg"),
+            FileSystem::getPath("textures/skybox/nx.jpg"),
+            FileSystem::getPath("textures/skybox/py.jpg"),
+            FileSystem::getPath("textures/skybox/ny.jpg"),
+            FileSystem::getPath("textures/skybox/pz.jpg"),
+            FileSystem::getPath("textures/skybox/nz.jpg"),
     };
 
     Skybox skybox ("skybox_vert.glsl", "skybox_frag.glsl", faces);
@@ -89,7 +104,7 @@ int main() {
         } else {
            scene.renderWithLights(model, view, projection, heightScale);
         }
-        skybox.renderSkybox(glm::mat4(glm::mat3(camera.getCameraView())), projection);
+        skybox.render(glm::mat4(glm::mat3(camera.getCameraView())), projection);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
@@ -107,15 +122,17 @@ void processInput(GLFWwindow *window) {
         shadowsKeyPressed = false;
     }
     if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-        if (heightScale > 0.0f)
+        if (heightScale > 0.0f) {
             heightScale -= 0.0005f;
-        else
+        } else {
             heightScale = 0.0f;
+        }
     } else if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
-        if (heightScale < 1.0f)
+        if (heightScale < 1.0f) {
             heightScale += 0.0005f;
-        else
+        } else {
             heightScale = 1.0f;
+        }
     }
 }
 

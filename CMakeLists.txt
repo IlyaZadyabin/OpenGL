@@ -62,7 +62,7 @@ macro(makeLink src dest target)
     add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E create_symlink ${src} ${dest}  DEPENDS  ${dest} COMMENT "mklink ${src} -> ${dest}")
 endmacro()
 
-# then create two project files (cube_scene)
+# then create two project files (cube_scene procedure_textures)
 foreach(CHAPTER ${CHAPTERS})
     file(GLOB SOURCE
             "src/${CHAPTER}/*.h"
