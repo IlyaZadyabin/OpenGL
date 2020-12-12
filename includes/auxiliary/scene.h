@@ -9,7 +9,7 @@ private:
 
     unsigned boxDiffuseMap  = loadTexture(FileSystem::getPath("textures/basecolor.jpg").c_str());
     unsigned boxSpecularMap = loadTexture(FileSystem::getPath("textures/metallic.jpg").c_str());
-    unsigned boxEmissionMap = loadTexture(FileSystem::getPath("textures/circles.jpg").c_str());
+    unsigned boxEmissionMap = loadTexture(FileSystem::getPath("textures/acid.jpg").c_str());
 
     const unsigned SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
     unsigned depthMapFBO{};
@@ -160,7 +160,7 @@ public:
             model = glm::scale(model, glm::vec3(0.2f));
             lampShader.setVec3("lightColor", pointLightColors[i]);
             lampShader.setMat4("model", model);
-            cube.render();
+            //cube.render();
         }
         //rotating light
         model = glm::mat4(1.0f);
