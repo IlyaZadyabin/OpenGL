@@ -1,3 +1,6 @@
+#ifndef SKYBOX_H
+#define SKYBOX_H
+
 #include <auxiliary/shader.h>
 #include <vector>
 #include <stb_image.h>
@@ -15,3 +18,4 @@ public:
     static unsigned int loadCubemap(std::vector<std::string> faces);
     static float vertices[];
 };
+#endif

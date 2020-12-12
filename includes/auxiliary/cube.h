@@ -1,3 +1,6 @@
+#ifndef CUBE_H
+#define CUBE_H
+
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
@@ -10,3 +13,5 @@ public:
 
     void render();
 };
+
+#endif
