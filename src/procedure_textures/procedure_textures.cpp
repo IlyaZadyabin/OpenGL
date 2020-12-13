@@ -8,7 +8,6 @@
 #include <auxiliary/shader.h>
 #include <auxiliary/filesystem.h>
 #include <auxiliary/loadTexture.h>
-#include <auxiliary/positions.h>
 //#include <auxiliary/sphere.h>
 #include <auxiliary/torus.h>
 // constants
@@ -127,7 +126,7 @@ int main() {
         torus.render(0.1, 0.25, 64, 32);
 
         // render light sources
-        for (unsigned int i = 0; i < sizeof(specialLightPositions) / sizeof(specialLightPositions[0]); ++i) {
+        for (unsigned int i = 0; i < sizeof(Scene::specialLightPositions) / sizeof(specialLightPositions[0]); ++i) {
             glm::vec3 newPos = specialLightPositions[i] + glm::vec3(std::sin(glfwGetTime() * 5.0) * 5.0, 0.0, 0.0);
             newPos = specialLightPositions[i];
             specialLightShader.setVec3("lightPositions[" + std::to_string(i) + "]", newPos);

@@ -45,7 +45,7 @@ elseif(APPLE)
     set(LIBS ${LIBS} ${APPLE_LIBS})
 endif(WIN32)
 
-set(CHAPTERS cube_scene procedure_textures)
+set(CHAPTERS cube_scene)
 
 configure_file(configuration/root_directory.h.in configuration/root_directory.h)
 include_directories(${CMAKE_BINARY_DIR}/configuration)
@@ -61,7 +61,7 @@ macro(makeLink src dest target)
     add_custom_command(TARGET ${target} POST_BUILD COMMAND ${CMAKE_COMMAND} -E create_symlink ${src} ${dest}  DEPENDS  ${dest} COMMENT "mklink ${src} -> ${dest}")
 endmacro()
 
-# then create two project files (cube_scene procedure_textures))
+# then create two project files (cube_scene))
 foreach(CHAPTER ${CHAPTERS})
     file(GLOB SOURCE
             "src/${CHAPTER}/*.h"
