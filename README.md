@@ -14,8 +14,9 @@
     mkdir build
     cd build
     cmake ..
+    cmake --build .
 ### Запуск
-    cd bin/cube_scene
+    cd bin/cube_scene/Debug/cube_scene.exe
     cube_scene.exe
 ### Clion
 
