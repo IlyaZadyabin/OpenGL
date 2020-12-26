@@ -2,24 +2,25 @@
 ![Alt Text](Gifs/lights.gif)
 ![Alt Text](Gifs/torus.gif)
 
-### Сборка на Linux
+### Build on Linux
     mkdir build
     cd build
     cmake ..
     make
-   Возможно потребуется установить libxxf86vm-dev
+    
+   There is a chance you need to install libxxf86vm-dev  
 
     sudo apt-get install libxxf86vm-dev
 
-### Запуск
+### Launch
     cd build/bin/cube_scene
     ./cube_scene
-### Сборка на Windows
+### Build on Windows
     mkdir build
     cd build
     cmake ..
     cmake --build .
-### Запуск
+### Launch
     cd bin/cube_scene/Debug/cube_scene.exe
     cube_scene.exe
 ### Clion
@@ -30,21 +31,21 @@
 ### Visual Studio
 
     Clone a repository
-    CmakeList.txt - правой кнопкой мыши: build
-    вверху Select Startup Item: cube_scene.exe
+    CmakeList.txt - mouse right click: build
+    In the upper menu: Select Startup Item: cube_scene.exe
 
-### Управление
-W, A, S, D, Q, E - вперёд, влево, назад, вправо, вниз, вверх  
-Колёсико мыши - приближение  
-F - меняет сцену  
-Z/C - настройка выпуклости диванной стены  
+### Controls
+W, A, S, D, Q, E - forward, left, back, right, down, up  
+Mouse scroll - zoom  
+F - change scene
+Z/C - configure wall bump
 
-### Реализованные эффекты
-1. Отбрасывание тени на плоскость
-2. Процедурные текстуры - при нажатии F появляются 3 тора
-3. Кубические текстуры в режиме окружающей среды
-4. Отбрасывание тени на другие объекты
-5. Попиксельный расчёт освещенности по стандартным моделям
-6. Нестандартная модель освещения - летающие кольца освещены по модели Кука-Торренса
-7. Нечёткие тени
+### Effects
+1. Casting a shadow onto a plane
+2. Procedural textures - pressing F produces 3 toruses
+3. Cubic textures in a skybox mode
+4. Casting shadows on other objects
+5. Per-pixel calculation of illumination using standard models
+6. Non-standard lighting model - flying rings are lit according to the Cook-Torrance model
+7. Fuzzy shadows
 8. Parallax relief mapping
