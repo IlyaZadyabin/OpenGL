@@ -13,7 +13,7 @@ void Scene::renderWithTorus(Camera cam) {
     model = glm::translate(model, glm::vec3(-6.0, 6.5, -10.0));
     model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0, 1.0, 0.0));
     specialLightShader.setMat4("model", model);
-    torus.render(0.1, 0.22, 30, 30);
+    torus.render(0.1, 0.22, 60, 30);
 
     model = glm::translate(model, glm::vec3(1.0,1.0,5.0));
     model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(1.0, 0.0, 0.0));
