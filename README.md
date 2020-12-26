@@ -1,3 +1,5 @@
+![Alt Text](Gifs/shadows.gif)  
+
 ### Сборка на Linux
     mkdir build
     cd build
