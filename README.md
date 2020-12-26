@@ -37,7 +37,7 @@
 ### Controls
 W, A, S, D, Q, E - forward, left, back, right, down, up  
 Mouse scroll - zoom  
-F - change scene
+F - change scene  
 Z/C - configure wall bump
 
 ### Effects
