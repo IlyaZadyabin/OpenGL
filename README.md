@@ -1,5 +1,6 @@
 ![Alt Text](Gifs/shadows.gif)
 ![Alt Text](Gifs/lights.gif)
+![Alt Text](Gifs/torus.gif)
 
 ### Сборка на Linux
     mkdir build
